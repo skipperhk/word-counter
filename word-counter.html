@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Word Counter</title>
+    <style>
+      body {
+        background-color: white;
+      }
+      .container {
+        margin: 20%;
+      }
+      textarea {
+        width: 350px;
+        height: 140px;
+        padding: 10px;
+        color: black;
+        font-family: Georgia;
+        font-size: 20px;
+        border: 2px solid;
+        border-color: black;
+      }
+      div {
+        margin-top: 6px;
+        font-size: 15px;
+        font-family: Arial;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <textarea id="textInput" placeholder="Input text"></textarea>
+      <div title="Word-Char-Count">
+        word count: <span id="Count">0</span>
+        char count: <span id="charCount">0</span>
+      </div>
+    </div>
+    <script>
+      document.getElementById('textInput').addEventListener('input', function() {
+        const text = this.value.trim();
+        const words = text.length > 0 ? text.split(/\s+/) : [];
+        const charCount = text.length
+        document.getElementById('Count').textContent = words.length;
+        document.getElementById('charCount').textContent = charCount
+      });
+    </script>
+  </body>
+</html>
